@@ -30,12 +30,19 @@ public class Program {
 		for(Seller sel : allSellers) {
 			System.out.println(sel);
 		}
-		
+		/*
 		System.out.println("\n=== TEST 4: seller insert =====");
 		Seller newSeller = new Seller(null, "Greg Silver", "greg@gmail.com", new Date(), 4000.0, department);
 		sellerDao.insert(newSeller);
 		System.out.println("Inseted! New id = " + newSeller.getId());
 		System.out.println(sellerDao.findById(newSeller.getId()));
+		*/
+		System.out.println("\n=== TEST 5: seller update =====");
+		Seller updatedSeller = sellerDao.findById(8);
+		updatedSeller.setName("Martha Black");
+		updatedSeller.setEmail("martha@gmail.com");
+		sellerDao.update(updatedSeller);
+		System.out.println("Update completed! " + sellerDao.findById(8));
 	}
 
 }
