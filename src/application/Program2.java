@@ -24,6 +24,39 @@ public class Program2 {
 			System.out.println(dep);
 		}
 		
+		System.out.println("\nPause! Type any key and press Enter to continue...");
+		sc.next();
+		
+		System.out.println("\n=== TEST 3: department insert =====");
+		Department newDep = new Department(null, "Office");
+		departmentDao.insert(newDep);
+		System.out.println("Inserted! New id = " + newDep.getId());
+		
+		System.out.println("\nPause! Type any key and press Enter to continue...");
+		sc.next();
+		
+		System.out.println("\n=== TEST 4: department update =====");
+		Department updatedDep = departmentDao.findById(newDep.getId());
+		updatedDep.setName("Pharmacy");
+		departmentDao.update(updatedDep);
+		System.out.println("Update completed!");
+		
+		System.out.println("\nPause! Type any key and press Enter to continue...");
+		sc.next();
+		
+		System.out.println("\n=== TEST 5: department delete =====");
+		departmentDao.deleteById(updatedDep.getId());
+		System.out.println("Delete completed!");
+		
+		System.out.println("\nPause! Type any key and press Enter to continue...");
+		sc.next();
+		
+		System.out.println("\n=== TEST 6: department findAll again =====");
+		deps = departmentDao.findAll();
+		for(Department dep : deps) {
+			System.out.println(dep);
+		}
+		
 		sc.close();
 
 	}
